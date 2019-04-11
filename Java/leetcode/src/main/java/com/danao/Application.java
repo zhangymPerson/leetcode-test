@@ -1,6 +1,6 @@
 package com.danao;
 
-import com.danao.com.danao.util.PropertiesUtils;
+import com.danao.util.PropertiesUtils;
 
 import java.io.IOException;
 import java.util.Properties;

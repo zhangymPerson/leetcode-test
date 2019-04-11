@@ -1,4 +1,4 @@
-package com.danao.com.danao.util;
+package com.danao.util;
 
 import java.io.IOException;
 import java.io.InputStream;
