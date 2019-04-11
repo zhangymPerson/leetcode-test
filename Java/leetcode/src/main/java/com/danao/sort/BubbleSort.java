@@ -25,10 +25,11 @@ public class BubbleSort {
 			return arr;
 		}
 		//冒泡次数
-		for(int i= 0 ;i<arr.length;i++){
+		for(int i= 0 ;i < arr.length - 1;i++){
 			int tmp = 0;
 			//开始冒泡计算，每次找出最大的一个
-			for(int j= 0; j < arr.length-1; j++){
+			//注意 j < arr.length - 1 - i ,因为有i个数已经排序好了，不需要再次比较
+			for(int j= 0; j < arr.length - 1 - i ; j++){
 				if(arr[j] > arr[j+1]){
 					tmp = arr[j];
 					arr[j] = arr[j+1];
@@ -40,28 +41,7 @@ public class BubbleSort {
 		return arr;
 	}
 
-	public static int[] sortNumOne(int[] arr){
-		if(ArrayUtils.isEmpty(arr)){
-			return arr;
-		}
-		//标记符号
-		boolean info = true;
-		for(int i = 0; i < arr.length ; i ++){
-			int tmp = 0;
-			for(int j = 0; j < arr.length - 1; j++){
-				if(arr[j] > arr[j+1]){
-					tmp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = tmp;
-					info = false;
-				}
-				if(info){
-					break;
-				}
-			}
-		}
-		return arr;
-	}
+
 
 
 
