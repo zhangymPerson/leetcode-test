@@ -2,6 +2,9 @@ package com.danao.util;
 
 import com.danao.command.LogFormat;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * @author zhang
  * @version 1.0
@@ -16,6 +19,16 @@ public class ArrayUtils {
 
 	public static void toString(int[] arr){
 		toString(arr,LogFormat.EMPTY);
+	}
+
+	public static void toString(Collection collection){
+		if(collection == null || collection.size() == 0){
+			System.out.println("集合为空");
+			return;
+		}
+		for(Object obj:collection){
+			System.out.println(obj.toString());
+		}
 	}
 
 	/**

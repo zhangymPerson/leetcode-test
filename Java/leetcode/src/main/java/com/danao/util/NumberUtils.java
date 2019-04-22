@@ -54,6 +54,48 @@ public class NumberUtils {
 		return org.apache.commons.lang3.ArrayUtils.toPrimitive(integers);
 	}
 
+
+
+
+	/**
+	 * 生成不重复(含负数的)数组
+	 * @param num 数组长度
+	 * @param max 取值范围 [-max ~ max]
+	 * @return
+	 */
+	public static int[] randomArrNoRepateHasNegative(int num,int max){
+		int[] arr = {};
+		if(num > max){
+			throw new RuntimeException("数组长度不能大于取值长度");
+		}
+		Set<Integer> set = new LinkedHashSet<>(num);
+		while(set.size() < num){
+			Integer i = randomNum(max);
+			if(randomResult()) {
+				set.add(i);
+			}else {
+				set.add(-i);
+			}
+		}
+
+		Integer[] integers = new Integer[num];
+		// set 转 Integer
+		integers = set.toArray(integers);
+		//interger[] 转 int[]
+		return org.apache.commons.lang3.ArrayUtils.toPrimitive(integers);
+	}
+
+
+	/**
+	 * 随机正反
+	 * @return
+	 */
+	public static boolean randomResult(){
+		int i = randomNum(2);
+		return i == 1 ? true:false;
+	}
+
+
 	/**
 	 * 生成指定长度的数组
 	 * @param num 数组长度
@@ -68,5 +110,16 @@ public class NumberUtils {
 		return arr;
 	}
 
+	public static void main(String[] args) {
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+		System.out.println(randomNum(2));
+	}
 
 }
