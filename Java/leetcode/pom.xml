@@ -10,6 +10,7 @@
 
     <properties>
         <commons-lang3.version>3.8.1</commons-lang3.version>
+        <log4j.version>1.2.12</log4j.version>
     </properties>
 
     <dependencies>
@@ -18,5 +19,45 @@
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
         </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
     </dependencies>
+
+    <!--指定jdk运行版本-->
+    <build>
+        <plugins>
+            <!--idea 编译Java 版本需要不停修改可以添加下面的配置固定jdk编译版本-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <!--普通maven项目配置文件读取 需要配置这里-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <!--其他项目需要加载的编译文件-->
+            <!--<resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>-->
+        </resources>
+    </build>
+
 </project>
